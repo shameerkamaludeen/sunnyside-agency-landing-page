@@ -165,7 +165,7 @@ header nav#nav {
     border: 0;
     padding: 0;
     margin: 0;
-
+    top: 8em;
     position: absolute;
     left: 2.4em;
     right: 2.4em;
@@ -442,13 +442,18 @@ footer .social a:active {
     color: hsl(228, 45%, 44%);
 }
 
-@media screen and (min-width: 31.25em) {
+@media screen and (min-width: 30.0625em) {
     
     /* || Header */
 
     header {
         position: relative;
         background: url(../images/desktop/image-header.jpg) center bottom / cover no-repeat;
+    }
+
+    header nav#nav {
+        width: 35em;
+        left: initial;
     }
 }
 
