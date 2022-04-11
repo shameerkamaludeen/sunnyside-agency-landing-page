@@ -69,9 +69,11 @@ header .wr-contact a {
 }
 
 .sec-creative a {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-family: 'Fraunces', serif;
     color: hsl(212, 27%, 19%);
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 .sec-service h3 {
@@ -170,13 +172,14 @@ header .header-main {
     margin: 3.4em 0 2.5em;
 }
 
-.sec-creative .wr-logo img {
+header .wr-logo img {
     height: 2.5em;
     width: auto;
 }
 
-.sec-creative .wr-hamburger img {
+header .wr-hamburger img {
     width: 2.7em;
+    cursor: pointer;
 }
 
 header nav#nav {
@@ -249,9 +252,7 @@ header .wr-contact a:active {
 .sec-creative .hero {
     height: calc(100vh - 8.55em);
     padding-top: 1px;
-    /* background: url(../images/mobile/image-header.jpg) center bottom / 100% auto no-repeat; */
     display: flex;
-    align-items: center;
     position: relative;
 }
 
@@ -269,6 +270,10 @@ header .wr-contact a:active {
     height: 100%;
     object-fit: cover;
     object-position: bottom;
+}
+
+.sec-creative .wr-content {
+    margin-top: 3em;
 }
 
 .sec-creative .wr-arrow {
@@ -315,16 +320,28 @@ header .wr-contact a:active {
     border-radius: 10px;
     left: 0;
     right: 0;
-    bottom: -1px;
+    bottom: -2px;
     z-index: -1;
 }
 
 .sec-creative .wr-brand-content a::after {
-    background-color: #f9f0ba;
+    background-color: hsl(51, 84%, 85%);
+}
+
+.sec-creative .wr-brand-content a:hover::after, 
+.sec-creative .wr-brand-content a:focus::after, 
+.sec-creative .wr-brand-content a:active::after {
+    background-color: hsl(51, 100%, 57%);
 }
 
 .sec-creative .wr-audience a::after {
     background-color: #fdd7d4;
+}
+
+.sec-creative .wr-audience a:focus::after, 
+.sec-creative .wr-audience a:hover::after, 
+.sec-creative .wr-audience a:active::after {
+    background-color: hsl(4, 100%, 77%);
 }
 
 .sec-creative .audience-img {
@@ -437,7 +454,8 @@ footer .nav a:visited {
 footer .nav a:hover, 
 footer .nav a:active, 
 footer .nav a:focus {
-    color: hsl(167, 40%, 24%);
+    color: hsl(0, 0%, 100%);
+    transition: color 0.2s;
 }
 
 footer .social {
@@ -451,6 +469,17 @@ footer .social > * {
     margin: 0 1.4em;
 }
 
+footer .social a {
+    fill: #2C7566;
+}
+
+footer .social a:focus, 
+footer .social a:hover, 
+footer .social a:active {
+    fill: hsl(0, 0%, 100%);
+    transition: fill 0.2s;
+}
+
 .attribution {
     font-size: 11px;
     text-align: center;
@@ -461,7 +490,7 @@ footer .social > * {
 }
 
 
-@media screen and (min-width: 30.0625em) {
+@media screen and (min-width: 31.25em) {
         
     /* || Typography */
 
@@ -473,12 +502,58 @@ footer .social > * {
 
     /* || Section creatives */
 
+    .sec-creative {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     .sec-creative .hero {
-        background: url(../images/desktop/image-header.jpg) center bottom / 100% auto no-repeat;
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+
+    .sec-creative .brand-img {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .sec-creative .wr-brand-content {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .sec-creative .audience-img {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .sec-creative .wr-audience {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .sec-creative .brand-img, 
+    .sec-creative .audience-img {
+        height: 100%;
+    } 
+
+    .sec-service .graphic-design {
+        background: url(../images/desktop/image-graphic-design.jpg) center top / cover no-repeat;
+    }
+    
+    .sec-service .photography {
+        background: url(../images/desktop/image-photography.jpg) center top / cover no-repeat;
     }
 
     /* || Section services */
 
+    .sec-service {
+        display: flex;
+    }
+
+    .sec-service > div {
+        flex: 50%;
+    }
 
     /* || Section testimonials */
 
@@ -492,6 +567,59 @@ footer .social > * {
 
 
 
+@media screen and (min-width: 43em) {
+        
+    /* || Typography */
+
+    .sec-creative h3 {
+        text-align: left;
+    }
+
+    .sec-creative p {
+        text-align: left;
+    }
+
+    /* || Layout */
+
+    /* || General */
+
+    /* || Header */
+    
+    header .wr-logo img {
+        height: 3.5em;
+    }
+
+    /* || Section creatives */
+
+    .sec-creative .wr-learn-more {
+        text-align: left;
+    }
+    
+    .sec-creative .hero {
+        height: calc(100vh - 11.3em);
+    }
+
+    /* || Section services */
+
+    /* || Section testimonials */
+
+    .sec-testimonial .wr-all-testimonial {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2em;
+    }
+
+    /* || Section projects */
+
+    .sec-project > div {
+        flex: 25%;
+    }
+
+    /* || Footer */
+
+}
+
+
 @media screen and (min-width: 48.0625em) {
         
     /* || Typography */
@@ -502,16 +630,153 @@ footer .social > * {
 
     /* || Header */
 
+    header {
+        position: initial;
+        padding: 3.3em 0;
+    }
+
+    header .header-main {
+        margin: 0;
+    }
+
+    header .wr-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .header-main {
+        display: initial;
+    }
+
+    header .wr-hamburger {
+        display: none;
+    }
+
+    header nav#nav {
+        max-height: initial;
+        position: initial;
+        transition: none;
+    }
+
+    header .nav {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        background-color: initial;
+    }
+
+    header .nav a {
+        transition: all 0.2s;
+    }
+
+    header .nav::before {
+        display: none;
+    }
+
+    header .nav a:link, 
+    header .nav a:visited {
+        color: hsl(0, 0%, 100%);
+    }
+    
+    header .nav a:hover, 
+    header .nav a:active, 
+    header .nav a:focus {
+        color: hsl(212, 27%, 19%);
+    }
+
+    header .wr-contact a {
+        margin-top: 0;
+        margin-right: 0;
+        background-color: hsl(0, 0%, 100%);
+        box-shadow: inset 0 0 1px 1px hsl(210deg 4% 67% / 20%);
+    }    
+    
+    header .wr-contact a:link, 
+    header .wr-contact a:visited {
+        color: hsl(212, 27%, 19%);
+    }
+
+    header .wr-contact a:hover, 
+    header .wr-contact a:active, 
+    header .wr-contact a:focus {
+        color: hsl(0, 0%, 100%);
+        background-color: hsl(0deg 0% 100% / 30%);
+    }
+
+
     /* || Section creatives */
 
+    .sec-creative .hero {
+        height: calc(100vh - 12.3em);
+    }
+  
     /* || Section services */
-
 
     /* || Section testimonials */
 
-
     /* || Section projects */
 
+    /* || Footer */
+
+}
+
+@media screen and (min-width: 64.0625em) {
+        
+    /* || Typography */
+
+    .sec-creative .hero h2 {
+        font-size: 3.5rem;        
+    }
+
+    .sec-creative h3 {
+        font-size: 2.5rem;        
+    }
+
+    .sec-testimonial h2 {
+        font-size: 1.25rem;
+    }
+
+    /* || Layout */
+
+    /* || General */
+
+    /* || Header */
+
+    /* || Section creatives */
+
+    .sec-creative .wr-brand-content, 
+    .sec-creative .wr-audience {
+        padding: 12em 0 16em;        
+    }
+    
+    .wr-brand-content .wr-content, 
+    .wr-audience .wr-content {
+        width: auto;
+        margin: 0 15.9% 0 22.25%;    
+    }
+
+    /* || Section services */
+
+    .sec-service .wr-content {
+        width: 50%;
+    }
+
+    /* || Section testimonials */
+
+    .sec-testimonial {
+        padding: 15em 0 13em;
+    }
+
+    .sec-testimonial .wr-all-testimonial {
+        column-gap: 3.5em;
+    }
+
+    .sec-testimonial .wr-content {
+        width: 78%;
+    }
+
+    /* || Section projects */
 
     /* || Footer */
 
