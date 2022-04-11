@@ -25,10 +25,3 @@ document.addEventListener('click', e => {
         }
     }
 });
-
-document.addEventListener('scroll', () => {
-    const nav = document.querySelector('header nav');
-    if (document.documentElement.clientWidth <= 769 && nav.classList.contains('active')) {
-        nav.classList.remove('active');
-    }
-});
