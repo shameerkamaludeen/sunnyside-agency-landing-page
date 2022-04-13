@@ -133,7 +133,7 @@ header .hero h2 {
 header {
     position: relative;
     background: url(../images/mobile/image-header.jpg) center bottom / cover no-repeat;
-    min-height: 100vh;
+    min-height: 53.8em;
 }
 
 header > .wr-content {
@@ -436,10 +436,22 @@ footer .social a:active {
 .attribution {
     font-size: 11px;
     text-align: center;
+    color: hsl(168, 34%, 41%);
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+}
+
+.attribution a:link, 
+.attribution a:visited, 
+.attribution a:active {
+    color: #2C7566;
+}
+
+.attribution a:focus, 
+.attribution a:hover {
+    color: hsl(0, 0%, 100%);
 }
 
 @media screen and (min-width: 30.0625em) {
@@ -449,6 +461,7 @@ footer .social a:active {
     header {
         position: relative;
         background: url(../images/desktop/image-header.jpg) center bottom / cover no-repeat;
+        min-height: 80em;
     }
 
     header nav#nav {
@@ -576,6 +589,7 @@ footer .social a:active {
         max-height: initial;
         position: initial;
         transition: none;
+        width: initial;
     }
 
     header .nav {
